@@ -7,7 +7,7 @@ import { siteConfig } from '@/lib/siteConfig'
 
 export default function CartPage() {
     const { cart, removeFromCart, clearCart } = useCart()
-    const { colors, typography, buttons } = siteConfig
+    const { colors, typography } = siteConfig
 
     const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
 

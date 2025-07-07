@@ -27,15 +27,15 @@ export default function AboutSection() {
         {/* MANIFESTO */}
         <div className="text-white text-left">
           <h2 className="text-4xl sm:text-5xl font-extrabold mb-6">
-            We’re not just a brand — <br /> we’re the drop before the storm.
+            We&apos;re not just a brand — <br /> we&apos;re the drop before the storm.
           </h2>
           <p className={`${colors.secondaryText} text-lg leading-relaxed`}>
-            Born from basement beats and rooftop views, FlyStore doesn't whisper — it roars.
+            Born from basement beats and rooftop views, FlyStore doesnt whisper — it roars.
             <br /><br />
             Every piece is a rebellion. A message. A stand against rinse-repeat fashion.
             We design for the bold. The unfiltered. The ones who lead from the underground up.
             <br /><br />
-            This isn’t fast fashion. This is FlyStore — where fabric meets fire.
+            This isn&apos;t fast fashion. This is FlyStore — where fabric meets fire.
           </p>
         </div>
       </div>

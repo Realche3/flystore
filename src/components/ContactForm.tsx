@@ -22,7 +22,7 @@ export default function ContactForm() {
         <div className="md:w-1/2">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Contact Us</h2>
           <p className={`${colors.secondaryText} text-base leading-relaxed`}>
-            Got a question about a drop? Want to collab? Or just say hey? Fill the form and we'll be in touch.
+            Got a question about a drop? Want to collab? Or just say hey? Fill the form and we will be in touch.
           </p>
           <p className="text-sm text-neutral-600 mt-4">Response time: usually within 24 hours.</p>
         </div>
@@ -64,7 +64,7 @@ export default function ContactForm() {
             </form>
           ) : (
             <div className="text-center text-lg text-lime-400 font-semibold">
-              ✅ Message sent! We’ll get back to you soon.
+              ✅ Message sent! We&apos;ll get back to you soon.
             </div>
           )}
         </div>
