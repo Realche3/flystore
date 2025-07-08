@@ -1,5 +1,6 @@
 import { siteConfig } from '@/lib/siteConfig'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function HeroSection() {
   const { typography, colors, buttons, heroTitle, heroSubtitle, heroButtonText, storeName } = siteConfig
@@ -25,11 +26,13 @@ export default function HeroSection() {
         <p className={`${colors.secondaryText} text-base sm:text-lg mb-8`}>
           {heroSubtitle}
         </p>
-        <button
+        <Link
+          href="#products"
           className={`${buttons.primary} bg-gradient-to-r ${colors.gradient} ${colors.buttonShadow} px-8 py-3 text-black text-lg rounded-full transition hover:scale-105`}
         >
           {heroButtonText}
-        </button>
+        </Link>
+
       </div>
 
       {/* Overlay Tagline */}

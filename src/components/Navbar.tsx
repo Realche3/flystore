@@ -13,7 +13,7 @@ export default function Navbar() {
 
   return (
     <header className={`w-full px-6 py-4 flex items-center justify-between border-b border-neutral-800 sticky top-0 z-50 ${colors.background}`}>
-      
+
       {/* LEFT: Hamburger + Brand */}
       <div className="flex items-center space-x-4">
         <button
@@ -22,7 +22,9 @@ export default function Navbar() {
         >
           {menuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
-        <h1 className="text-2xl font-bold text-white">{storeName}</h1>
+        <Link href="/" className="text-2xl font-bold text-white hover:text-lime-400 transition">
+          {storeName}
+        </Link>
       </div>
 
       {/* CENTER: Nav Links for desktop */}
