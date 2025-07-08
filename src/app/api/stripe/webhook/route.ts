@@ -35,7 +35,7 @@ export async function POST(req: Request) {
       // ✅ Send email to store owner
       await resend.emails.send({
         from: 'Orders <onboarding@resend.dev>',
-        to: 'storeowner@example.com', // 📝 TODO: Change this on resale
+        to: 'delivered@resend.dev', // 📝 TODO: Change this on resale
         subject: 'New Order Received',
         html: `
           <h2>New Order from ${customerName} (${customerEmail})</h2>
