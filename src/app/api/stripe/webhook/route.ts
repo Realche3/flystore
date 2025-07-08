@@ -26,19 +26,20 @@ export async function POST(req: Request) {
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object as Stripe.Checkout.Session
 
+      // ✅ Correct fields
       const customerEmail = session.customer_details?.email
-      const shipping = (session as any).shipping?.address
-
+      const customerName = session.customer_details?.name
+      const shipping = session.customer_details?.address
       const cart = JSON.parse(session.metadata?.cart || '[]')
 
       // ✅ Send email to store owner
       await resend.emails.send({
         from: 'Orders <onboarding@resend.dev>',
-        to: 'delivered@resend.dev', // 📝 TODO: Change this on resale
+        to: 'storeowner@example.com', // 📝 TODO: Change this on resale
         subject: 'New Order Received',
         html: `
-          <h2>New Order from ${customerEmail}</h2>
-          <p><strong>Shipping:</strong> ${shipping?.line1}, ${shipping?.city}, ${shipping?.country}</p>
+          <h2>New Order from ${customerName} (${customerEmail})</h2>
+          <p><strong>Shipping:</strong> ${shipping?.line1}, ${shipping?.city}, ${shipping?.country}, ${shipping?.postal_code}</p>
           <p><strong>Items:</strong></p>
           <ul>
             ${cart.map((item: any) => 
@@ -48,15 +49,15 @@ export async function POST(req: Request) {
         `
       })
 
-      // ✅ Send confirmation email to customer
+      // ✅ Confirmation email to customer
       if (customerEmail) {
         await resend.emails.send({
           from: 'FlyStore <onboarding@resend.dev>',
           to: customerEmail,
           subject: 'Thank you for your order!',
           html: `
-            <h2>Order Confirmation</h2>
-            <p>Thanks for shopping with us. We'll start preparing your order right away.</p>
+            <h2>Hi ${customerName || ''},</h2>
+            <p>Thanks for your purchase! We're preparing your order now.</p>
           `
         })
       }
